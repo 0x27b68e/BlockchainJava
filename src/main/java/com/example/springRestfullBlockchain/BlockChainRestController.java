@@ -22,24 +22,24 @@ public class BlockChainRestController {
 		
 	}
 	
-	@RequestMapping(value = "blocks", method = RequestMethod.GET)
+	@RequestMapping(value = "/blocks", method = RequestMethod.GET)
 	public ResponseEntity<Object> blocks() {
 		 return new ResponseEntity<>(blockChain.arraychain.toString(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "addBlocks", method = RequestMethod.POST)
+	@RequestMapping(value = "/addBlocks", method = RequestMethod.POST)
 	public ResponseEntity<Object> addNewBlock(@RequestBody Block newBlock) {
 		blockChain.createNewBlock(newBlock);
 		return new ResponseEntity<>("Add new block ok!", HttpStatus.CREATED);
 	}
 	
-	@RequestMapping(value = "checkContrainstTrue", method = RequestMethod.GET)
+	@RequestMapping(value = "/checkContrainstTrue", method = RequestMethod.GET)
 	@ResponseBody
 	public Boolean checkContrainstTrue() {
 		return  blockChain.checkBlockContrainst();
 	}
 	
-	@RequestMapping(value = "checkContrainstFalse", method = RequestMethod.GET)
+	@RequestMapping(value = "/checkContrainstFalse", method = RequestMethod.GET)
 	@ResponseBody
 	public Boolean checkContrainstFalse() {
 		blockChain.arraychain.get(2).setData("350");

@@ -23,6 +23,7 @@ public class BlockChain {
 	public void createNewBlock(Block newBlock) {
 		newBlock.setPreviousHash(this.lastBlock().getHash());
 		//newBlock.setHash(newBlock.calculateHash());
+		newBlock.miningBlock(384909108);
 		arraychain.add(newBlock);
 	}
 	
